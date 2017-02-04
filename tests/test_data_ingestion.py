@@ -26,23 +26,25 @@ log = logging.getLogger(__name__)
 ASSETS = os.path.join(os.path.abspath(os.path.split(__file__)[0]), 'assets')
 assert os.path.isdir(ASSETS)
 
+log.info(ASSETS)
 
 def get_file(fn):
     fp = os.path.join(ASSETS, fn)
+    log.info(fp)
     assert os.path.isfile(fp)
     return fp
 
 
 class TestDataIngestion:
 
-    def test_simple_text_ingestion(self):
+    def test_simple_text_ingestion(self, caplog):
         fn = 'MSS_Analysis_Tube 1_Updated.txt'
         fp = get_file(fn)
-
+        assert fn in caplog.text
         r = utils.ingest_text.ingest(fp=fp)
         assert len(r) == 527
 
-    def test_workbook_constnants(self):
+    def test_workbook_constants(self, caplog):
         keys = [getattr(workbook, name) for name in dir(workbook) if name.startswith('COLUMN_')]
         assert len(keys) > 4  # XXX Kind of a arbitrary number.
         fn = 'MSS_Analysis_Tube 1_Updated.txt'
