@@ -62,3 +62,8 @@ docs/_build
 .bootstrap
 .appveyor.token
 *.bak
+
+# Pycharm
+.idea/*
+# pyenv
+.python-version
