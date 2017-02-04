@@ -33,4 +33,3 @@ COLUMN_ROOTNOTES = 'RootNotes'
 COLUMN_HIGHESTORDER = 'HighestOrder'
 # COLUMN_MYCO = 'Myco'  # XXX This is not present in the MSS Dataset ???
 COLUMN_TIP_DIAMETER = 'TipDiam'
-
