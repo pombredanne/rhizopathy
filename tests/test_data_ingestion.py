@@ -30,6 +30,7 @@ log.info(ASSETS)
 
 def get_file(fn):
     fp = os.path.join(ASSETS, fn)
+    log.info('asset contents:{}'.format(os.listdir(ASSETS)))
     log.info(fp)
     assert os.path.isfile(fp)
     return fp
