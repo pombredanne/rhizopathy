@@ -25,7 +25,7 @@ def ingest(fp):
     :param fp:
     :return:
     """
-
+    log.debug('Ingesting data from {}'.format(fp))
     with open(fp, 'rb') as f:
         lines = f.readlines()
     lines = [line.decode().strip().split('\t') for line in lines]

@@ -33,8 +33,8 @@ class TestDataIngestion:
     def test_simple_text_ingestion(self, caplog):
         fn = 'MSS_Analysis_Tube 1_Updated.TXT'
         fp = get_file(fn)
-        assert fn in caplog.text
         r = utils.ingest_text.ingest(fp=fp)
+        assert fn in caplog.text
         assert len(r) == 527
 
     def test_workbook_constants(self):
