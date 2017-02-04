@@ -37,19 +37,20 @@ def ingest(fp):
         log.error('Unable to find ROOT header')
         raise
     root_index = root_header.index(workbook.ROOT_HEADER_KEY)
-    root_rows = [line for line in lines[4:] if line[root_index]==workbook.ROOT_HEADER_KEY]
+    root_rows = [line for line in lines[4:] if line[root_index] == workbook.ROOT_HEADER_KEY]
 
     # Now map root rows -> header dicts then make a dataframe and serialize it to xlsx????
     new_rows = []
     for row in root_rows:
         if len(row) != len(root_header):
             raise ValueError('Row length does not equal header length.')
-        d = {k:v for k, v in zip(root_header, row)}
+        d = {k: v for k, v in zip(root_header, row)}
         new_rows.append(d)
 
     log.debug('Extracted {} root rows.'.format(len(new_rows)))
 
     return new_rows
+
 
 # noinspection PyMissingOrEmptyDocstring
 def main(options):  # pragma: no cover
