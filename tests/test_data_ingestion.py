@@ -39,7 +39,7 @@ def get_file(fn):
 class TestDataIngestion:
 
     def test_simple_text_ingestion(self, caplog):
-        fn = 'MSS_Analysis_Tube 1_Updated.txt'
+        fn = 'MSS_Analysis_Tube 1_Updated.TXT'
         fp = get_file(fn)
         assert fn in caplog.text
         r = utils.ingest_text.ingest(fp=fp)
@@ -48,7 +48,7 @@ class TestDataIngestion:
     def test_workbook_constants(self, caplog):
         keys = [getattr(workbook, name) for name in dir(workbook) if name.startswith('COLUMN_')]
         assert len(keys) > 4  # XXX Kind of a arbitrary number.
-        fn = 'MSS_Analysis_Tube 1_Updated.txt'
+        fn = 'MSS_Analysis_Tube 1_Updated.TXT'
         fp = get_file(fn)
 
         r = utils.ingest_text.ingest(fp=fp)
