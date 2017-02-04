@@ -88,3 +88,21 @@ To run a subset of tests::
 To run all the test environments in *parallel* (you need to ``pip install detox``)::
 
     detox
+
+
+Seting up local test environment with pyenv & tox
+----
+
+Install the following python versions with pyenv:
+1. 2.7.11
+2. 3.3.6
+3. 3.4.6
+4. 3.5.3
+
+Set those as local versions in a shell session:
+``pyenv local 2.7.11 3.3.6 3.4.6 3.5.3``
+Then install detox in all of them:
+``pip install detox``
+
+
+You should then be able to run the tests via tox.
