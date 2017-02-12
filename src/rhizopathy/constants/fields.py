@@ -18,6 +18,6 @@ ALPHA_NUM_UNDER = r'{alpha_under}{num}'.format(alpha_under=ALPHA_UNDER, num=NUM)
 ALPHA_NUM_UNDER_CLASS = r'[{alpha_num_under}]'.format(alpha_num_under=ALPHA_NUM_UNDER)
 DIGIT_START = r'^[{num}]'.format(num=NUM)
 VALID_PYTHON_IDENTIFIER = r'^[{alpha_under}]+[{alpha_num_under}]*$'.format(alpha_under=ALPHA_UNDER,
-                                                                          alpha_num_under=ALPHA_NUM_UNDER)
+                                                                           alpha_num_under=ALPHA_NUM_UNDER)
 INVALID_PYTHON_IDENTIFIERS = r'[^{alpha_num_under}]'.format(alpha_num_under=ALPHA_NUM_UNDER)
 REPLACEMENT_STR = 'X'

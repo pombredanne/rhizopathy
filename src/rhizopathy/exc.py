@@ -6,6 +6,8 @@ Created on 2/8/17.
 Exception definitions.
 """
 
+
+# XXX These ALL need docstrings!
 class AnalyzerError(Exception):
     pass
 

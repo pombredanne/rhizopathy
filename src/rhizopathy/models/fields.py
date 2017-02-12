@@ -8,18 +8,22 @@ Stores the Synthesis and ROOT tab fields that we care about.
 # Stdlib
 import logging
 import re
+
 # Third Party Code
 # Custom Code
-from rhizopathy.constants.fields import ROOT_BIRTH, ROOT_FINAL, VALID_PYTHON_IDENTIFIER, INVALID_PYTHON_IDENTIFIERS, \
-    REPLACEMENT_STR, DIGIT_START, ALPHA_NUM_UNDER_CLASS
+from rhizopathy.constants.fields import ALPHA_NUM_UNDER_CLASS
+from rhizopathy.constants.fields import DIGIT_START
+from rhizopathy.constants.fields import INVALID_PYTHON_IDENTIFIERS
+from rhizopathy.constants.fields import REPLACEMENT_STR
+from rhizopathy.constants.fields import ROOT_BIRTH
+from rhizopathy.constants.fields import ROOT_FINAL
+from rhizopathy.constants.fields import VALID_PYTHON_IDENTIFIER
 from rhizopathy.exc import FieldsError
 
 log = logging.getLogger(__name__)
 
 
-
 class AttrValidator(object):
-
     @classmethod
     def scrub_attr(cls, value, whitelist=None):
         if not whitelist:

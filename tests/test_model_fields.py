@@ -17,11 +17,10 @@ import sys
 
 # Third Party Code
 import pytest
-# Custom Code
+
 from rhizopathy.constants import fields as fc
 from rhizopathy.exc import FieldsError
 from rhizopathy.models import fields
-
 
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s [%(levelname)s] %(message)s [%(filename)s:%(funcName)s]')

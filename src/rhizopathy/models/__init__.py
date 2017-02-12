@@ -9,7 +9,7 @@ Created on 2/8/17.
 """
 # Stdlib
 import logging
+
 # Third Party Code
 # Custom Code
 log = logging.getLogger(__name__)
-

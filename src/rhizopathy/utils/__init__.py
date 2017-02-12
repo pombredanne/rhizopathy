@@ -10,6 +10,5 @@ import logging
 
 from rhizopathy.utils import ingest_text
 
-
 __all__ = ['ingest_text']
 log = logging.getLogger(__name__)
