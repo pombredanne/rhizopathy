@@ -1,11 +1,9 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# XXX Update Docstring
 """
 rhizopathy - test_model_fields.py
 Created on 2/8/17.
 
-
+Tests for rhizopath.models.fields
 """
 # Stdlib
 import argparse
