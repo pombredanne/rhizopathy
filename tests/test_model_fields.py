@@ -93,3 +93,33 @@ class TestRootDataFields:
     def test_basic_class(self):
         obj = fields.RootDataFields()
         assert len(obj.required_attributes) == 10
+
+    def test_additional_fields(self):
+        additional_fields = {'foobar': fc.ROOT_BIRTH,
+                             'myco': fc.ROOT_FINAL,
+                             }
+        obj = fields.RootDataFields(additional_fields=additional_fields)
+        assert len(obj.required_attributes) == 12
+        assert len(obj.custom_attributes) == 2
+
+    def test_additional_fields_bad1(self):
+        additional_fields = {'foobar': fc.ROOT_BIRTH,
+                             'myco': 'oh snap',
+                             }
+        with pytest.raises(FieldsError) as cm:
+            obj = fields.RootDataFields(additional_fields=additional_fields)
+        assert 'Unknown custom field propogation value' in str(cm.value)
+
+    def test_additional_fields_bad2(self):
+        additional_fields = {'Session#': fc.ROOT_BIRTH,
+                             }
+        with pytest.raises(FieldsError) as cm:
+            obj = fields.RootDataFields(additional_fields=additional_fields)
+        assert 'Additional field duplicates a required field' in str(cm.value)
+
+    def test_additional_fields_bad3(self):
+        additional_fields = {'*': fc.ROOT_BIRTH,
+                             }
+        with pytest.raises(FieldsError) as cm:
+            obj = fields.RootDataFields(additional_fields=additional_fields)
+        assert 'Key contains no valid python identifiers' in str(cm.value)
