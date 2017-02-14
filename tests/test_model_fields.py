@@ -6,12 +6,8 @@ Created on 2/8/17.
 Tests for rhizopath.models.fields
 """
 # Stdlib
-import argparse
-import json
 import logging
-import os
 import re
-import sys
 
 # Third Party Code
 import pytest
@@ -44,7 +40,6 @@ class TestAttrValidator:
                 r = validator.scrub_attr(value=k)
                 assert r is None
             assert 'Cannot create a field for a callable name.' in str(cm.value)
-
 
     def test_scrub_1(self, validator):
         values = [('foobar', 'foobar'),
@@ -105,19 +100,19 @@ class TestRootDataFields:
                              'myco': 'oh snap',
                              }
         with pytest.raises(FieldsError) as cm:
-            obj = fields.RootDataFields(additional_fields=additional_fields)
+            fields.RootDataFields(additional_fields=additional_fields)
         assert 'Unknown custom field propogation value' in str(cm.value)
 
     def test_additional_fields_bad2(self):
         additional_fields = {'Session#': fc.ROOT_BIRTH,
                              }
         with pytest.raises(FieldsError) as cm:
-            obj = fields.RootDataFields(additional_fields=additional_fields)
+            fields.RootDataFields(additional_fields=additional_fields)
         assert 'Additional field duplicates a required field' in str(cm.value)
 
     def test_additional_fields_bad3(self):
         additional_fields = {'*': fc.ROOT_BIRTH,
                              }
         with pytest.raises(FieldsError) as cm:
-            obj = fields.RootDataFields(additional_fields=additional_fields)
+            fields.RootDataFields(additional_fields=additional_fields)
         assert 'Key contains no valid python identifiers' in str(cm.value)

@@ -31,6 +31,8 @@ class RootIdentity(collections.namedtuple(ROOT_IDENTITY,
 
     def get(self, value):
         return getattr(self, value)
+
+
 # The following docstring defitinos only works in Python 3.5 in testing :(
 # RootIdentity.__doc__ = 'Store information used to uniquely identify a root in a tube.'
 # getattr(RootIdentity, ROOT_NAME).__doc__ = 'Name of the root'
