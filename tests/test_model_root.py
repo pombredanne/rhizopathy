@@ -7,10 +7,8 @@ Created on 2/13/17.
 
 """
 # Stdlib
-import json
 import logging
 import os
-import sys
 # Third party code
 import pytest
 # Custom code
@@ -81,7 +79,7 @@ class TestRootIdentity:
 
 class TestModelRoot:
 
-    def test_model_root(self, root_obj, root_args ):
+    def test_model_root(self, root_obj, root_args):
         rn, loc, bs = root_args
         ri = root.RootIdentity(rn, loc, bs)
 
@@ -102,13 +100,14 @@ class TestModelRoot:
         r = root_obj.get('foo')
         assert r == 'paper'
 
+        r = root_obj.get('duck')
+        assert 'Cannot retrieve key' not in caplog.text
+        assert r is None
+
         r = root_obj.get('paper')
         assert r is None
         assert 'Cannot retrieve key' in caplog.text
 
         r = root_obj.get('paper', 'defaulty')
         assert r == 'defaulty'
-
-        r = root_obj.get('duck')
-        assert r is None
 
