@@ -16,4 +16,3 @@ IS_ALIVE = 'isAlive'
 CENSORED = 'censored'
 HIGHEST_ORDER = 'highestOrder'
 ANOMALY = 'anomaly'
-

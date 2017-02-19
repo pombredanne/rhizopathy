@@ -22,3 +22,6 @@ class SerializationError(AnalyzerError):
 
 class FieldsError(Exception):
     pass
+
+class TubeError(Exception):
+    pass

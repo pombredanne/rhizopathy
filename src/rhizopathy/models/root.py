@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# XXX Update Docstring
 """
 rhizopathy - root.py
 Created on 2/8/17.
@@ -9,16 +8,17 @@ Class for representing and storing data about roots.
 # Stdlib
 import collections
 import logging
+
 # Third Party Code
 # Custom Code
-from rhizopathy.constants.root import ROOT_NAME
-from rhizopathy.constants.root import LOCATION
+from rhizopathy.constants.root import ANOMALY
 from rhizopathy.constants.root import BIRTH_SESSSION
-from rhizopathy.constants.root import IS_ALIVE
 from rhizopathy.constants.root import CENSORED
 from rhizopathy.constants.root import HIGHEST_ORDER
-from rhizopathy.constants.root import ANOMALY
+from rhizopathy.constants.root import IS_ALIVE
+from rhizopathy.constants.root import LOCATION
 from rhizopathy.constants.root import ROOT_IDENTITY
+from rhizopathy.constants.root import ROOT_NAME
 
 log = logging.getLogger(__name__)
 __author__ = 'wgibb'

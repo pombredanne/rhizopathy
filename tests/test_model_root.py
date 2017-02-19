@@ -9,9 +9,10 @@ Created on 2/13/17.
 # Stdlib
 import logging
 import os
+
 # Third party code
 import pytest
-# Custom code
+
 from rhizopathy.constants import root as rc
 from rhizopathy.models import root
 
@@ -110,4 +111,3 @@ class TestModelRoot:
 
         r = root_obj.get('paper', 'defaulty')
         assert r == 'defaulty'
-
