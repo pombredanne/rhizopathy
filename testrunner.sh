@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 export PYTHONPATH=./src
 MODULE=rhizopathy
 HTML_DIR=./htmlcov
