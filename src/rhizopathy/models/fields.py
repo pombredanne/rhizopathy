@@ -16,6 +16,7 @@ from rhizopathy.constants.fields import DIGIT_START
 from rhizopathy.constants.fields import INVALID_PYTHON_IDENTIFIERS
 from rhizopathy.constants.fields import REPLACEMENT_STR
 from rhizopathy.constants.fields import ROOT_BIRTH
+from rhizopathy.constants.fields import ROOT_END_STATES
 from rhizopathy.constants.fields import ROOT_FINAL
 from rhizopathy.constants.fields import VALID_PYTHON_IDENTIFIER
 from rhizopathy.exc import FieldsError
@@ -58,6 +59,12 @@ class IdentityFields(AttrValidator):
 
 class RootDataFields(IdentityFields):
     def __init__(self, additional_fields=None):
+        """
+        A fields mapping object which is specific to the Root class.
+        
+        :param additional_fields: Additional fields which need to be mapped.  This must support a dictionary interface.
+        The keys are the fields to extract, and the values are the WHEN those fields should be extracted {}.
+        """.format(ROOT_END_STATES)
         self.base_fields = ['Session#',
                             'DeathSession',
                             'TipLivStatus',
@@ -80,7 +87,7 @@ class RootDataFields(IdentityFields):
                 log.info('Preparing to extract custom field [{}]'.format(k))
                 if k in self.required_attributes:
                     raise FieldsError('Additional field duplicates a required field [{}]'.format(k))
-                if v not in [ROOT_BIRTH, ROOT_FINAL]:
+                if v not in ROOT_END_STATES:
                     raise FieldsError('Unknown custom field propogation value [{}][{}]'.format(k, v))
                 new_key = self.scrub_attr(value=k)
                 self.custom_attributes[k] = new_key

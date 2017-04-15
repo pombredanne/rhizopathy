@@ -94,7 +94,7 @@ Seting up local test environment with pyenv & tox
 ----
 
 Install the following python versions with pyenv:
-1. 2.7.11
+1. 2.7.13
 2. 3.3.6
 3. 3.4.6
 4. 3.5.3

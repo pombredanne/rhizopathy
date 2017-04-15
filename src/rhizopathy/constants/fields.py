@@ -9,6 +9,7 @@ Constants related to fields models.
 # strings related to root birth and final stages.
 ROOT_BIRTH = 'BIRTH'
 ROOT_FINAL = 'FINAL'
+ROOT_END_STATES = [ROOT_BIRTH, ROOT_FINAL]
 
 # Validation strings for identifying good/bad attrs via regex.
 NUM = r'0-9'
