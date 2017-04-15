@@ -13,8 +13,11 @@ import os
 # Third party code
 import pytest
 
+from rhizopathy.constants.fields import ROOT_BIRTH
+from rhizopathy.constants.fields import ROOT_FINAL
 from rhizopathy.constants import root as rc
 from rhizopathy.models import root
+from rhizopathy.models import fields
 
 # Logging config
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s [%(levelname)s] %(message)s [%(filename)s:%(funcName)s]')
@@ -27,9 +30,10 @@ assert os.path.isdir(ASSETS)
 
 @pytest.fixture()
 def attr_map():
-    _map = {'foo': 'bar',
-            'duck': 'quack',
-            }
+    additional_fields = {'foo': ROOT_BIRTH,
+                         'duck': ROOT_FINAL,
+                         }
+    _map = fields.RootDataFields(additional_fields=additional_fields)
     return _map
 
 
